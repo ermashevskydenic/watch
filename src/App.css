@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+body{
+    display: grid;
+    justify-items: center;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    display: grid;
+grid-auto-flow: row;
+    border: black 1px solid;
+    margin-top: 20px;
+    padding: 10px;
+justify-items: center;
+}
+.form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 'label-name label-timezone .'
+                         'inpute-name input-timezone btn-submit';
+    justify-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.btn-submit{
+    grid-area: btn-submit;
+    height: 30px;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.label-name{
+   grid-area: label-name;
+}
+.label-timezone{
+grid-area: label-timezone;
+}
+.input-name{
+    grid-area: inpute-name;
+}
+.input-timezone{
+    grid-area: input-timezone;
+}
+.local-watch{
+    text-align: center;
+    padding: 10px;
+}
+.container-watches{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+    width: 100%;
+    height: 40vh;
+    padding-top: 20px;
+    overflow: auto;
+}
+.watch-card{
+    display: grid;
+    width: 150px;
+    height: 70px;
+    border: black 1px solid;
+    justify-items: center;
+    border-radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fa-times-circle-o{
+    font-size: 20px;
+    color: red;
+    justify-self: right;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@media screen and (max-width: 745px) {
+.container-watches{
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    .form{
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 'label-name label-timezone'
+                         'inpute-name input-timezone'
+                         'btn-submit btn-submit';
+    }
 }
+@media screen and (max-width: 500px){
+    .form{
+        width: 70%;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 'label-name'
+                         'inpute-name'
+                        'label-timezone'
+                       'input-timezone'
+                         'btn-submit' ;
+    }
+    .container{
+        width: 300px;
+    }
+    .container-watches{
+        width: 250px;
+       column-gap: 5px;
+    }
+    .watch-card{
+        width: 100px;
+    }
+    .btn-submit{
+        height: 50px;
 
-.App-link {
-  color: #61dafb;
+    }
 }
+@media screen and (max-width: 405px){
+    .container{
+        width: 250px;
+    }
+    .container-watches{
+        height: 20vh;
+        gap: 5px;
+    }
+   .form{
+       justify-items: center;
+       align-items: center;
+       width: 100%;
+       padding-left: 50px;
+   }
+   input{
+       height: 50px;
+       font-size: 16px;
+   }
+}
+@media screen and (max-width: 350px){
+.container{
+    width: 210px;
+}
+    .form{
+        padding-left:0;
+        width: 80%;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    }
+    .container-watches{
+        grid-template-columns: 200px;
+        gap: 10px;
+        justify-items: center;
+    }
+    .watch-card{
+        width: 170px;
+    }
+    .local-watch{
+        width: 170px;
+    }
 }
